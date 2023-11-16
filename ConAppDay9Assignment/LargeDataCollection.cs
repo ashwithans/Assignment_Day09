@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace MemoryManagementExample
+namespace ConAppDay9Assignment
 {
     public class LargeDataCollection : IDisposable
     {
@@ -10,13 +10,14 @@ namespace MemoryManagementExample
         public LargeDataCollection(IEnumerable<int> initialData)
         {
             dataCollection = new List<int>(initialData);
-            DisplayInitialData(initialData);
+            Console.WriteLine("Initial elements in the collection:");
+            AccessElements();
         }
 
         public void AddElement(int element)
         {
             dataCollection.Add(element);
-            Console.WriteLine($"Added element: {element}");
+            Console.WriteLine($"Adding element: {element}");
         }
 
         public bool RemoveElement(int element)
@@ -24,7 +25,7 @@ namespace MemoryManagementExample
             bool removed = dataCollection.Remove(element);
             if (removed)
             {
-                Console.WriteLine($"Removed element: {element}");
+                Console.WriteLine($"Removing element: {element}");
             }
             else
             {
@@ -47,15 +48,6 @@ namespace MemoryManagementExample
             dataCollection.Clear();
             dataCollection = null;
             GC.Collect();
-        }
-
-        private void DisplayInitialData(IEnumerable<int> initialData)
-        {
-            Console.WriteLine("Initial data entered:");
-            foreach (var item in initialData)
-            {
-                Console.WriteLine(item);
-            }
         }
     }
 }
