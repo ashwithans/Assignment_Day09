@@ -13,11 +13,9 @@ namespace ConAppDay9Assignment
             LargeDataCollection largeCollection = new LargeDataCollection(new int[] { 1, 2, 3, 4, 5 });
 
 
-            // Display initial elements
             Console.WriteLine("Initial elements in the collection:");
             largeCollection.AccessElements();
 
-            // Manually add an element
             Console.Write("Enter an element to add: ");
             int elementToAdd = int.Parse(Console.ReadLine());
             Console.WriteLine($"Adding element: {elementToAdd}");
@@ -28,11 +26,9 @@ namespace ConAppDay9Assignment
             Console.WriteLine($"Removing element: {elementToRemove}");
             largeCollection.RemoveElement(elementToRemove);
 
-            // Display elements after manual operations
             Console.WriteLine("Elements in the collection after modifications:");
             largeCollection.AccessElements();
 
-            // Dispose the collection
             largeCollection.Dispose();
             Console.ReadKey();
         }
